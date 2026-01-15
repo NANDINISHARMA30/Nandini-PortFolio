@@ -56,14 +56,14 @@ export function AboutSection() {
           <Card className="relative z-10 overflow-hidden border-white/5 bg-card/50 backdrop-blur-xl group">
             <CardContent className="p-0">
               <img
-                src="/developer-portrait.png"
+                src="/developer-portrait.jpeg"
                 alt="Profile"
                 className="w-full aspect-[4/5] object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
-                <p className="text-xl font-bold">Nandini</p>
-                <p className="text-sm text-muted-foreground">Lead Developer at Creative Pulse</p>
+                <p className="text-xl font-bold">Nandini Sharma</p>
+                <p className="text-sm text-muted-foreground">AI Explorer | Frontend Developer | Product Designer</p>
               </div>
             </CardContent>
           </Card>
