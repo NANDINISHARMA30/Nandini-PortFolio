@@ -1,10 +1,28 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
 import { Button } from "@/app/components/ui/button"
 import { ArrowRight, ChevronDown } from "lucide-react"
 
 export function HeroSection() {
+  const fullText = "Nandini Sharma"
+  const [text, setText] = useState("")
+  const [index, setIndex] = useState(0)
+
+  useEffect(() => {
+    if (index < fullText.length) {
+      const timeout = setTimeout(() => {
+        setText(fullText.slice(0, index + 1))
+        setIndex(index + 1)
+      }, 120)
+
+      return () => clearTimeout(timeout)
+    }
+  }, [index])
+
+  const [firstName, lastName] = text.split(" ")
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 px-6 overflow-hidden">
       {/* Animated Nebulas */}
@@ -30,13 +48,22 @@ export function HeroSection() {
           Available for Innovation
         </motion.div>
 
+        {/* Typing Heading */}
         <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9] glow-text">
-          Nandini <span className="text-primary italic opacity-90 block md:inline">Dev.</span>
+          {firstName}
+          {lastName && (
+            <span className="text-primary italic opacity-90 block md:inline">
+              {" "}
+              {lastName}
+            </span>
+          )}
+          <span className="ml-1 animate-pulse opacity-70">|</span>
         </h1>
 
         <p className="text-lg md:text-2xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed tracking-wide">
-          Crafting high-fidelity <span className="text-foreground font-medium">digital artifacts</span> where precise
-          engineering meets avant-garde interaction design.
+          Crafting high-fidelity{" "}
+          <span className="text-foreground font-medium">digital artifacts</span>{" "}
+          where precise engineering meets avant-garde interaction design.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
@@ -59,8 +86,13 @@ export function HeroSection() {
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-10 flex flex-col items-center gap-2 text-muted-foreground"
       >
-        <span className="text-[10px] uppercase tracking-[0.2em] font-medium">Scroll to explore</span>
-        <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Number.POSITIVE_INFINITY, duration: 2 }}>
+        <span className="text-[10px] uppercase tracking-[0.2em] font-medium">
+          Scroll to explore
+        </span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 2 }}
+        >
           <ChevronDown className="w-4 h-4" />
         </motion.div>
       </motion.div>
