@@ -17,19 +17,17 @@ export function AboutSection() {
           <div className="space-y-4">
             <h2 className="text-sm font-bold tracking-[0.2em] uppercase text-primary">The Visionary</h2>
             <h3 className="text-4xl md:text-5xl font-bold">
-              Crafting experiences that transcend traditional boundaries.
+              Where AI meets aesthetics
             </h3>
           </div>
 
           <div className="space-y-6 text-muted-foreground leading-relaxed text-lg">
             <p>
-              My journey began in the vibrant world of front-end experimentation, where I discovered that code isn't
-              just a logic-driven medium, but an artistic one. Believing that understanding the technical foundations
-              leads to more thoughtful designs.
-            </p>
-            <p>
-              In the past I&apos;ve developed modern design systems, fluid dashboard interfaces, and interactive
-              experiments that focus on the intersection of usability and aesthetic beauty.
+              I’m an AI explorer, front-end product developer, and UI/UX designer who enjoys turning complex ideas into products people actually enjoy using. I’ve worked on real-world projects across AI, healthcare, and platform design, including hackathon-winning builds and open-source contributions
+            <br />
+              I like being involved end-to-end—from thinking through the product . I’m naturally curious, constantly experimenting, and always learning by building. 
+              
+              <br />For me, good design is quiet, intuitive, and purposeful—and the best tech is the kind that feels effortless to use.
             </p>
           </div>
 
