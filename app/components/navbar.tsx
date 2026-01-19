@@ -35,121 +35,128 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-white/5 py-4"
-          : "bg-transparent py-6"
-      }`}
+  className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    scrolled
+      ? "bg-purple-900/20 backdrop-blur-md border-b border-purple-500/20 py-4 shadow-sm"
+      : "bg-transparent py-6"
+  }`}
+>
+  <div className="max-w-7xl mx-auto px-6 flex items-center justify-between relative">
+    {/* SOFT GLOW BEHIND NAV */}
+    {scrolled && (
+      <div className="absolute inset-0 -z-10 rounded-lg bg-purple-500/10 blur-2xl animate-pulse-slow" />
+    )}
+
+    {/* LOGO */}
+    <motion.div
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      className="flex items-center gap-2 font-bold text-xl tracking-tight relative z-10"
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground">
+        <Layout className="w-5 h-5" />
+      </div>
+      <span>NANDINI.</span>
+    </motion.div>
 
-        {/* LOGO */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="flex items-center gap-2 font-bold text-xl tracking-tight"
+    {/* DESKTOP NAV */}
+    <div className="hidden md:flex items-center gap-6 relative z-10">
+      {navLinks.map((link, i) => (
+        <motion.a
+          key={link.name}
+          href={link.href}
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: i * 0.08 }}
+          className="text-sm font-medium text-white/80 hover:text-primary transition-colors"
         >
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground">
-            <Layout className="w-5 h-5" />
-          </div>
-          <span>NANDINI.</span>
-        </motion.div>
+          {link.name}
+        </motion.a>
+      ))}
+      <a
+        href="#terminal"
+        className="flex items-center gap-1 text-sm text-white/80 hover:text-primary transition-colors"
+      >
+        <Terminal className="w-4 h-4" />
+        Terminal
+      </a>
+      <a
+        href="/resume.pdf"
+        target="_blank"
+        className="flex items-center gap-1 text-sm text-white/80 hover:text-primary transition-colors"
+      >
+        <FileText className="w-4 h-4" />
+        Resume
+      </a>
 
-        {/* DESKTOP NAV */}
-        <div className="hidden md:flex items-center gap-6">
-          {navLinks.map((link, i) => (
-            <motion.a
+      {/* SOCIALS */}
+      <a href="https://github.com/" target="_blank">
+        <Github className="w-4 h-4 text-white/80 hover:text-primary transition-colors" />
+      </a>
+      <a href="https://linkedin.com/" target="_blank">
+        <Linkedin className="w-4 h-4 text-white/80 hover:text-primary transition-colors" />
+      </a>
+
+      {/* THEME TOGGLE */}
+      <Button size="icon" variant="ghost">
+        <Moon className="w-4 h-4" />
+      </Button>
+    </div>
+
+    {/* MOBILE TOGGLE */}
+    <button
+      className="md:hidden text-white/80 relative z-10"
+      onClick={() => setIsOpen(!isOpen)}
+    >
+      {isOpen ? <X /> : <Menu />}
+    </button>
+  </div>
+
+  {/* MOBILE MENU */}
+  <AnimatePresence>
+    {isOpen && (
+      <motion.div
+        initial={{ opacity: 0, height: 0 }}
+        animate={{ opacity: 1, height: "auto" }}
+        exit={{ opacity: 0, height: 0 }}
+        className="md:hidden bg-purple-900/20 backdrop-blur-xl border-b border-purple-500/20 overflow-hidden"
+      >
+        <div className="px-6 py-8 flex flex-col gap-6">
+          {navLinks.map((link) => (
+            <a
               key={link.name}
               href={link.href}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.08 }}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              className="text-lg font-medium text-white/80 hover:text-primary"
+              onClick={() => setIsOpen(false)}
             >
               {link.name}
-            </motion.a>
+            </a>
           ))}
 
-          {/* TERMINAL */}
           <a
             href="#terminal"
-            className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary"
+            className="flex items-center gap-2 text-white/80 hover:text-primary"
           >
-            <Terminal className="w-4 h-4" />
-            Terminal
+            <Terminal className="w-5 h-5" /> Terminal
           </a>
-          
-          {/* RESUME */}
+
           <a
             href="/resume.pdf"
-            target="_blank"
-            className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary"
+            className="flex items-center gap-2 text-white/80 hover:text-primary"
           >
-            <FileText className="w-4 h-4" />
-            Resume
+            <FileText className="w-5 h-5" /> Resume
           </a>
 
-          {/* SOCIALS */}
-          <a href="https://github.com/" target="_blank">
-            <Github className="w-4 h-4 text-muted-foreground hover:text-primary" />
-          </a>
-          <a href="https://linkedin.com/" target="_blank">
-            <Linkedin className="w-4 h-4 text-muted-foreground hover:text-primary" />
-          </a>
-
-          {/* THEME TOGGLE (UI only) */}
-          <Button size="icon" variant="ghost">
-            <Moon className="w-4 h-4" />
-          </Button>
+          <div className="flex gap-4 pt-4">
+            <Github className="text-white/80 hover:text-primary" />
+            <Linkedin className="text-white/80 hover:text-primary" />
+            <Moon className="text-white/80 hover:text-primary" />
+          </div>
         </div>
+      </motion.div>
+    )}
+  </AnimatePresence>
+</nav>
 
-        {/* MOBILE TOGGLE */}
-        <button
-          className="md:hidden text-foreground"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X /> : <Menu />}
-        </button>
-      </div>
-
-      {/* MOBILE MENU */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-xl border-b border-white/5 overflow-hidden"
-          >
-            <div className="px-6 py-8 flex flex-col gap-6">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-lg font-medium"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </a>
-              ))}
-
-              <a href="#terminal" className="flex items-center gap-2">
-                <Terminal className="w-5 h-5" /> Terminal
-              </a>
-
-              <a href="/resume.pdf" className="flex items-center gap-2">
-                <FileText className="w-5 h-5" /> Resume
-              </a>
-
-              <div className="flex gap-4 pt-4">
-                <Github />
-                <Linkedin />
-                <Moon />
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
   )
 }

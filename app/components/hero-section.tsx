@@ -119,7 +119,7 @@ export function HeroSection() {
         >
           <div className="flex justify-between items-center">
             <span className="text-xs tracking-widest text-primary">
-              USER.PROFILE v2.5.1
+              USER.PROFILE v4.5.1
             </span>
             <span className="flex items-center gap-2 text-xs text-green-400">
               <Activity className="w-3 h-3" /> SYS: ACTIVE
@@ -143,7 +143,7 @@ export function HeroSection() {
                 Nandini Sharma
               </p>
               <p className="text-xs text-muted-foreground">
-                AI · Frontend · Product
+                Noida   
               </p>
             </div>
           </div>
@@ -184,7 +184,7 @@ export function HeroSection() {
         className="absolute bottom-10 flex flex-col items-center gap-2 text-muted-foreground"
       >
         <span className="text-[10px] uppercase tracking-widest">
-          Scroll to explore
+          Available for Interships
         </span>
         <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 2 }}>
           <ChevronDown className="w-4 h-4" />
