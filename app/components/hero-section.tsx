@@ -15,6 +15,7 @@ import {
 } from "lucide-react"
 
 export function HeroSection() {
+  // Typing effect for name
   const fullText = "Nandini Sharma"
   const [text, setText] = useState("")
   const [index, setIndex] = useState(0)
@@ -31,46 +32,71 @@ export function HeroSection() {
 
   const [firstName, lastName] = text.split(" ")
 
+  // Typing-loop effect for roles
+  const roles = ["AI Engineer", "Frontend Developer", "Product Thinker"]
+  const [roleIndex, setRoleIndex] = useState(0)
+  const [roleText, setRoleText] = useState("")
+  const [roleCharIndex, setRoleCharIndex] = useState(0)
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setRoleText(roles[roleIndex].slice(0, roleCharIndex + 1))
+      if (roleCharIndex + 1 === roles[roleIndex].length) {
+        setTimeout(() => {
+          setRoleIndex((prev) => (prev + 1) % roles.length)
+          setRoleCharIndex(0)
+        }, 1500)
+      } else {
+        setRoleCharIndex(roleCharIndex + 1)
+      }
+    }, 100)
+    return () => clearTimeout(timeout)
+  }, [roleCharIndex, roleIndex])
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center pt-28 px-6 overflow-hidden">
       {/* BACKGROUND ORBS */}
       <div className="absolute top-1/4 -left-1/4 w-[500px] h-[500px] bg-primary/20 blur-[150px] rounded-full mix-blend-screen" />
       <div className="absolute bottom-1/4 -right-1/4 w-[600px] h-[600px] bg-emerald-500/10 blur-[180px] rounded-full mix-blend-screen" />
 
       <div className="relative z-10 max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
         {/* LEFT TERMINAL INTRO */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
-          className="space-y-8"
+          className="relative space-y-8"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/10 text-xs tracking-widest text-primary">
+          {/* PURPLE LIGHT GLOW */}
+          <div className="absolute -inset-4 -z-10 rounded-2xl bg-purple-500/20 blur-3xl animate-pulse-slow" />
+
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/10 text-xs tracking-widest text-primary relative z-10">
             <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
             System Status: Online
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-tight">
+          <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-tight relative z-10">
             Hi, I’m{" "}
-            <span className="text-primary">
+            <span className="text-primary relative z-10">
               {firstName}
               {lastName && ` ${lastName}`}
             </span>
             <span className="animate-pulse ml-1">|</span>
           </h1>
 
-          <h2 className="text-xl md:text-2xl text-muted-foreground font-medium">
-            AI Engineer · Frontend Developer · Product Thinker
+          {/* Animated Roles */}
+          <h2 className="text-xl md:text-2xl text-muted-foreground font-medium relative z-10">
+            {roleText}
+            <span className="animate-pulse ml-1">|</span>
           </h2>
 
-          <p className="max-w-xl text-muted-foreground leading-relaxed">
+          <p className="max-w-xl text-muted-foreground leading-relaxed relative z-10">
             Backend logic by discipline, AI by curiosity, frontend by craft.
             I design and engineer systems where performance, intelligence,
             and experience intersect.
           </p>
 
-          <div className="flex gap-4">
+          <div className="flex gap-4 relative z-10">
             <Button size="lg" className="rounded-full gap-2">
               Explore Projects <ArrowRight className="w-4 h-4" />
             </Button>
@@ -99,28 +125,28 @@ export function HeroSection() {
               <Activity className="w-3 h-3" /> SYS: ACTIVE
             </span>
           </div>
+
           {/* PROFILE HEADER */}
-<div className="flex items-center gap-4 pb-4 border-b border-white/10">
-  <div className="relative w-16 h-16 rounded-full overflow-hidden border border-white/20">
-    <Image
-      src="/developer-portrait.jpeg"
-      alt="Developer portrait"
-      fill
-      className="object-cover"
-      priority
-    />
-  </div>
+          <div className="flex items-center gap-4 pb-4 border-b border-white/10">
+            <div className="relative w-16 h-16 rounded-full overflow-hidden border border-white/20">
+              <Image
+                src="/developer-portrait.jpeg"
+                alt="Developer portrait"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
 
-  <div>
-    <p className="text-sm font-semibold text-white">
-      Nandini Sharma
-    </p>
-    <p className="text-xs text-muted-foreground">
-      AI · Frontend · Product
-    </p>
-  </div>
-</div>
-
+            <div>
+              <p className="text-sm font-semibold text-white">
+                Nandini Sharma
+              </p>
+              <p className="text-xs text-muted-foreground">
+                AI · Frontend · Product
+              </p>
+            </div>
+          </div>
 
           {/* METRICS */}
           <div className="grid grid-cols-2 gap-4 text-sm">
@@ -169,7 +195,6 @@ export function HeroSection() {
 }
 
 /* ---------- SMALL COMPONENTS ---------- */
-
 function Metric({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-lg bg-black/30 border border-white/5 px-3 py-2">
