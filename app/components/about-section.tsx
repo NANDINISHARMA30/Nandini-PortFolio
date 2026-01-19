@@ -33,11 +33,11 @@ export function AboutSection() {
 
           <div className="grid grid-cols-2 gap-8 pt-4">
             <div>
-              <p className="text-3xl font-bold text-foreground">08+</p>
+              <p className="text-3xl font-bold text-foreground">02+</p>
               <p className="text-sm text-muted-foreground">Years Experience</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-foreground">42+</p>
+              <p className="text-3xl font-bold text-foreground">12+</p>
               <p className="text-sm text-muted-foreground">Projects Launched</p>
             </div>
           </div>
