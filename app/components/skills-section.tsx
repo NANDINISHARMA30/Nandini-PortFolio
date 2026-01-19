@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m, motion } from "framer-motion"
 import {
   Code2,
   Monitor,
@@ -63,15 +63,17 @@ const skillsData = [
   },
   {
     title: "Artificial Intelligence",
-    subtitle: "Other tools and technologies I work with",
-    icon: Boxes,
+    subtitle: "AI, ML, and data-driven technologies ",
+    icon: GitBranch,
     items: [
-      { name: "Linux", icon: Cpu },
-      { name: "OpenGL", icon: Boxes },
-      { name: "Azure", icon: Boxes },
-      { name: "Firebase", icon: Leaf },
-      { name: "Version Control", icon: GitBranch },
-      { name: "Blockchain", icon: Boxes },
+      { name: "Machine Learning", icon: Code2  },
+      { name: "Deep Learning", icon: Leaf   },
+      { name: "TensorFlow", icon: Boxes },
+      { name: "PyTorch", icon: Boxes },
+      { name: "Scikit-learn", icon: Cpu },
+      { name: "NLP", icon: FileCode },
+      { name: "Computer Vision", icon: Cpu },
+      { name: "OpenAI APIs", icon: Leaf  },
     ],
   },
 ]
