@@ -1,11 +1,22 @@
 "use client"
 
-import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
 import { useState } from "react"
+import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
 import { initialData } from "@/lib/data"
-import { Card } from "@/app/components/ui/card"
-import { Badge } from "@/app/components/ui/badge"
-import { ArrowUpRight, Github, Code } from "lucide-react"
+import {
+  Github,
+  ArrowUpRight,
+  Database,
+  Brain,
+  Server,
+  Layers
+} from "lucide-react"
+
+const categoryIcons: Record<string, any> = {
+  Backend: Server,
+  AI: Brain,
+  Others: Layers,
+}
 
 export function ProjectsSection() {
   const [filter, setFilter] = useState("All")
@@ -15,38 +26,38 @@ export function ProjectsSection() {
   const filteredProjects =
     filter === "All"
       ? initialData.projects
-      : initialData.projects.filter((p) =>
-          p.tags.some((tag) =>
+      : initialData.projects.filter((project) =>
+          project.tags.some((tag) =>
             tag.toLowerCase().includes(filter.toLowerCase())
           )
         )
 
   return (
-    <section id="projects" className="relative py-32 px-6">
-      <div className="max-w-7xl mx-auto space-y-20">
+    <section className="relative py-32 px-6">
+      <div className="max-w-7xl mx-auto space-y-16">
 
-        {/* Header */}
+        {/* HEADER */}
         <div className="text-center space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-primary">
+          <h2 className="text-4xl font-semibold tracking-tight text-primary">
             Projects
           </h2>
-          <p className="max-w-2xl mx-auto text-muted-foreground text-sm">
-            Explore my latest projects showcasing backend development,
-            AI implementation, and system architecture.
+          <p className="text-sm text-muted-foreground max-w-xl mx-auto">
+            A curated selection of backend systems, AI products, and
+            production-ready applications.
           </p>
         </div>
 
-        {/* Filters */}
+        {/* FILTER TABS */}
         <div className="flex justify-center gap-3 flex-wrap">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-5 py-2 rounded-md text-xs font-semibold transition-all border
+              className={`px-5 py-1.5 text-xs rounded-full border transition-all
                 ${
                   filter === cat
-                    ? "bg-primary text-primary-foreground border-primary shadow-lg"
-                    : "bg-background/40 text-muted-foreground border-border hover:bg-background/70"
+                    ? "bg-primary/10 border-primary text-primary shadow-[0_0_14px_rgba(var(--ring),0.45)]"
+                    : "border-border text-muted-foreground hover:border-primary/50 hover:text-primary"
                 }`}
             >
               {cat}
@@ -54,78 +65,119 @@ export function ProjectsSection() {
           ))}
         </div>
 
-        {/* Projects Grid */}
+        {/* PROJECT GRID */}
         <LayoutGroup>
-          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <motion.div
+            layout
+            className="grid grid-cols-1 md:grid-cols-2 gap-10"
+          >
             <AnimatePresence>
-              {filteredProjects.map((project) => (
-                <motion.div
-                  key={project.id}
-                  layout
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 20 }}
-                  transition={{ duration: 0.35 }}
-                >
-                  <Card className="relative h-full bg-background/40 backdrop-blur-xl border border-border hover:border-primary/40 transition-all">
+              {filteredProjects.map((project) => {
+                const Icon =
+                  categoryIcons[
+                    project.tags.find((t) =>
+                      categories.includes(t)
+                    ) || "Others"
+                  ] || Database
 
-                    {/* Icons */}
-                   <div className="absolute top-4 right-4 flex gap-3">
-  {project.githubUrl && (
-    <Github
-      onClick={() => window.open(project.githubUrl, "_blank")}
-      className="w-4 h-4 cursor-pointer text-muted-foreground hover:text-primary"
-    />
-  )}
-  {project.liveUrl && (
-    <ArrowUpRight
-      onClick={() => window.open(project.liveUrl, "_blank")}
-      className="w-4 h-4 cursor-pointer text-muted-foreground hover:text-primary"
-    />
-  )}
-</div>
-
-
-                    {/* Content */}
-                    <div className="p-6 space-y-4">
-                      <div className="flex items-center gap-2 text-primary">
-                        <Code className="w-4 h-4" />
-                        <h3 className="text-lg font-semibold">
-                          {project.title}
-                        </h3>
+                return (
+                  <motion.div
+                    key={project.id}
+                    layout
+                    initial={{ opacity: 0, y: 18 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 18 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                  >
+                    {/* CARD */}
+                    <div
+                      className="
+                        relative h-full
+                        rounded-xl
+                        bg-card
+                        border border-primary/25
+                        shadow-[0_0_24px_rgba(var(--ring),0.2)]
+                        hover:shadow-[0_0_40px_rgba(var(--ring),0.4)]
+                        transition-all
+                      "
+                    >
+                      {/* ACTION ICONS */}
+                      <div className="absolute top-4 right-4 flex gap-3 text-muted-foreground">
+                        {project.githubUrl && (
+                          <Github
+                            className="w-4 h-4 cursor-pointer hover:text-primary"
+                            onClick={() =>
+                              window.open(project.githubUrl, "_blank")
+                            }
+                          />
+                        )}
+                        {project.liveUrl && (
+                          <ArrowUpRight
+                            className="w-4 h-4 cursor-pointer hover:text-primary"
+                            onClick={() =>
+                              window.open(project.liveUrl, "_blank")
+                            }
+                          />
+                        )}
                       </div>
 
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {project.description}
-                      </p>
+                      {/* CONTENT */}
+                      <div className="p-7 space-y-5">
 
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-2 pt-2">
-                        {project.tags.map((tag) => (
-                          <Badge
-                            key={tag}
-                            variant="secondary"
-                            className="text-[10px] uppercase bg-primary/10 text-primary border-primary/20"
+                        {/* TITLE ROW */}
+                        <div className="flex items-center gap-3">
+                          <div className="p-2 rounded-md bg-primary/10 text-primary">
+                            <Icon className="w-4 h-4" />
+                          </div>
+                          <h3 className="text-lg font-semibold text-foreground">
+                            {project.title}
+                          </h3>
+                        </div>
+
+                        {/* DESCRIPTION */}
+                        <p className="text-sm leading-relaxed text-muted-foreground">
+                          {project.description}
+                        </p>
+
+                        {/* TAGS */}
+                        <div className="flex flex-wrap gap-2 pt-1">
+                          {project.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="
+                                px-2.5 py-0.5
+                                text-[11px]
+                                rounded-full
+                                border border-primary/25
+                                text-primary
+                                bg-primary/10
+                              "
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+
+                        {/* FOOTER CTA */}
+                        <div className="pt-4">
+                          <span
+                            onClick={() =>
+                              project.liveUrl &&
+                              window.open(project.liveUrl, "_blank")
+                            }
+                            className="inline-flex items-center gap-1 text-sm text-primary hover:underline cursor-pointer"
                           >
-                            {tag}
-                          </Badge>
-                        ))}
-                      </div>
-
-                      {/* CTA */}
-                      <div className="pt-4">
-                        <span className="text-sm font-medium text-primary hover:underline flex items-center gap-1 cursor-pointer">
-                          View Project <ArrowUpRight className="w-3 h-3" />
-                        </span>
+                            View Project <ArrowUpRight className="w-3 h-3" />
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </Card>
-                </motion.div>
-              ))}
+                  </motion.div>
+                )
+              })}
             </AnimatePresence>
           </motion.div>
         </LayoutGroup>
-
       </div>
     </section>
   )
