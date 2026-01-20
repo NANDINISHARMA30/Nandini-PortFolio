@@ -65,8 +65,8 @@ export const initialData: PortfolioData = {
       "Designing and developing intelligent products where AI-driven logic powers clean, scalable, and human-centered digital experiences.",
     avatar: "/creative-developer-portrait.png",
     socials: {
-      github: "https://github.com/yourusername",
-      linkedin: "https://linkedin.com/in/yourusername",
+      github: "https://github.com/NANDINISHARMA30",
+      linkedin: "https://linkedin.com/in/nandini-sharma-92701a282",
       twitter: "https://twitter.com/yourusername",
     },
   },
@@ -87,7 +87,7 @@ export const initialData: PortfolioData = {
         "Data Analysis",
       ],
       liveUrl: "",
-      githubUrl: "https://github.com/yourusername/stress-detector-pss",
+      githubUrl: "https://github.com/NANDINISHARMA30/Stress_Detection-PSS_Code-",
       featured: true,
     },
 
@@ -106,7 +106,7 @@ export const initialData: PortfolioData = {
         "Python",
       ],
       liveUrl: "",
-      githubUrl: "https://github.com/yourusername/blog-generator-llm",
+      githubUrl: "https://github.com/NANDINISHARMA30/Blog-Generation-LLM-application",
       featured: true,
     },
 
@@ -125,7 +125,7 @@ export const initialData: PortfolioData = {
         "Backend",
       ],
       liveUrl: "",
-      githubUrl: "https://github.com/yourusername/financial-analysis-rag",
+      githubUrl: "https://github.com/NANDINISHARMA30/Financial-Analysis-Assitant--RAG",
       featured: true,
     },
 
@@ -144,7 +144,7 @@ export const initialData: PortfolioData = {
         "OpenCV",
       ],
       liveUrl: "",
-      githubUrl: "https://github.com/yourusername/mango-leaf-ai",
+      githubUrl: "https://github.com/NANDINISHARMA30/Mango-Leaf-AI-Diagnosis-",
       featured: true,
     },
   ],

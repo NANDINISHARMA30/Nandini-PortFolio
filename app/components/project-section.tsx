@@ -42,7 +42,7 @@ export function ProjectsSection() {
             Projects
           </h2>
           <p className="text-sm text-muted-foreground max-w-xl mx-auto">
-            A curated selection of backend systems, AI products, and
+            A curated selection of Research projects, AI products, and
             production-ready applications.
           </p>
         </div>
