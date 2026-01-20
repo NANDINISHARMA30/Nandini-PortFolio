@@ -34,7 +34,7 @@ export function ContactSection() {
               <div className="w-12 h-12 rounded-full glass border-white/5 flex items-center justify-center group-hover:border-primary/50 transition-colors">
                 <Mail className="w-5 h-5" />
               </div>
-              <span className="text-xl font-medium">hello@lorenzwoehr.com</span>
+              <span className="text-xl font-medium">nandiniisharma2005@gmail.com</span>
             </div>
 
             <div className="flex gap-4 pt-4">
