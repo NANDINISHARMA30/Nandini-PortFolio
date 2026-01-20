@@ -1,3 +1,5 @@
+// data.ts
+
 export interface Project {
   id: string
   title: string
@@ -52,91 +54,155 @@ export interface PortfolioData {
   projects: Project[]
   blogPosts: BlogPost[]
   skills: Skill[]
-  experience: Experience[] // Added experience array
+  experience: Experience[]
 }
 
 export const initialData: PortfolioData = {
   profile: {
-    name: "Nandini",
-    role: "Full Stack Creative Developer",
-    bio: "Crafting elegant digital experiences that bridge the gap between complex logic and artistic design.",
+    name: "Nandini Sharma",
+    role: "AI Engineer · Frontend Developer · Product Thinker",
+    bio:
+      "Designing and developing intelligent products where AI-driven logic powers clean, scalable, and human-centered digital experiences.",
     avatar: "/creative-developer-portrait.png",
     socials: {
-      github: "https://github.com",
-      linkedin: "https://linkedin.com",
-      twitter: "https://twitter.com",
+      github: "https://github.com/yourusername",
+      linkedin: "https://linkedin.com/in/yourusername",
+      twitter: "https://twitter.com/yourusername",
     },
   },
+
   projects: [
     {
-      id: "1",
-      title: "Nebula Dashboard",
-      description: "A futuristic observability platform for cloud-native constellations.",
-      image: "/observability-interface.png",
-      tags: ["Next.js", "Three.js", "Tailwind"],
-      liveUrl: "#",
-      githubUrl: "#",
+      id: "stress-detector-pss",
+      title: "Stress Detector (PSS-Based)",
+      description:
+        "A machine learning–based stress detection system leveraging the Perceived Stress Scale (PSS) to classify psychological stress levels using structured scoring and predictive modeling.",
+      image: "/projects/stress-detector.png",
+      tags: [
+        "AI",
+        "Machine Learning",
+        "Python",
+        "Scikit-learn",
+        "Flask",
+        "Data Analysis",
+      ],
+      liveUrl: "",
+      githubUrl: "https://github.com/yourusername/stress-detector-pss",
       featured: true,
     },
+
     {
-      id: "2",
-      title: "Quantum CMS",
-      description: "Managing content across parallel dimensions with ease.",
-      image: "/cms-dashboard-interface.jpg",
-      tags: ["TypeScript", "Prisma", "PostgreSQL"],
-      liveUrl: "#",
-      githubUrl: "#",
+      id: "blog-generator-llm",
+      title: "Blog Generator (LLM)",
+      description:
+        "A generative AI application that produces high-quality blogs from minimal prompts using large language models, prompt engineering, and NLP pipelines.",
+      image: "/projects/blog-generator.png",
+      tags: [
+        "AI",
+        "LLM",
+        "NLP",
+        "LangChain",
+        "FastAPI",
+        "Python",
+      ],
+      liveUrl: "",
+      githubUrl: "https://github.com/yourusername/blog-generator-llm",
+      featured: true,
+    },
+
+    {
+      id: "financial-analysis-rag",
+      title: "Financial Analysis Assistant (RAG)",
+      description:
+        "A Retrieval-Augmented Generation (RAG) powered financial assistant that retrieves relevant financial documents and generates accurate, context-aware analytical insights.",
+      image: "/projects/financial-rag.png",
+      tags: [
+        "AI",
+        "RAG",
+        "LangChain",
+        "Vector Database",
+        "LLM",
+        "Backend",
+      ],
+      liveUrl: "",
+      githubUrl: "https://github.com/yourusername/financial-analysis-rag",
+      featured: true,
+    },
+
+    {
+      id: "mango-leaf-ai",
+      title: "Mango Leaf AI Diagnosis",
+      description:
+        "A computer vision and deep learning solution for detecting and classifying mango leaf diseases using CNNs, enabling early diagnosis for precision agriculture.",
+      image: "/projects/mango-leaf.png",
+      tags: [
+        "AI",
+        "Computer Vision",
+        "Deep Learning",
+        "CNN",
+        "TensorFlow",
+        "OpenCV",
+      ],
+      liveUrl: "",
+      githubUrl: "https://github.com/yourusername/mango-leaf-ai",
       featured: true,
     },
   ],
+
   blogPosts: [
     {
       id: "b1",
-      title: "The Future of Space-Based Computing",
-      excerpt: "Exploring how quantum networks will revolutionize orbital data centers.",
+      title: "How Retrieval-Augmented Generation Improves AI Accuracy",
+      excerpt:
+        "Understanding why RAG has become a critical architecture for building reliable, real-world AI systems.",
       content: "Full content here...",
-      slug: "future-of-space-computing",
+      slug: "rag-improves-ai-accuracy",
       publishedAt: "2025-12-15",
       status: "Published",
-      tags: ["Quantum", "Space", "Cloud"],
+      tags: ["AI", "RAG", "LLM"],
     },
     {
       id: "b2",
-      title: "Building Resilient UI for Zero-G",
-      excerpt: "Design principles for interfaces that work in weightless environments.",
+      title: "From Prompt to Product: Building with LLMs",
+      excerpt:
+        "A practical breakdown of designing scalable applications powered by large language models.",
       content: "Full content here...",
-      slug: "ui-for-zero-g",
+      slug: "building-products-with-llms",
       publishedAt: "2026-01-02",
       status: "Draft",
-      tags: ["Design", "Accessibility"],
+      tags: ["LLM", "Product", "AI Engineering"],
     },
   ],
+
   skills: [
     { id: "s1", name: "React", icon: "atom", category: "Frontend", proficiency: 95 },
-    { id: "s2", name: "Node.js", icon: "server", category: "Backend", proficiency: 88 },
+    { id: "s2", name: "Next.js", icon: "globe", category: "Frontend", proficiency: 94 },
     { id: "s3", name: "TypeScript", icon: "code", category: "Frontend", proficiency: 92 },
-    { id: "s4", name: "Next.js", icon: "globe", category: "Frontend", proficiency: 94 },
-    { id: "s5", name: "Tailwind CSS", icon: "wind", category: "Frontend", proficiency: 90 },
-    { id: "s6", name: "PostgreSQL", icon: "database", category: "Backend", proficiency: 85 },
-    { id: "s7", name: "Framer Motion", icon: "move", category: "Frontend", proficiency: 80 },
-    { id: "s8", name: "Three.js", icon: "box", category: "Frontend", proficiency: 75 },
+    { id: "s4", name: "Tailwind CSS", icon: "wind", category: "Frontend", proficiency: 90 },
+    { id: "s5", name: "Python", icon: "terminal", category: "Backend", proficiency: 93 },
+    { id: "s6", name: "Machine Learning", icon: "brain", category: "Backend", proficiency: 90 },
+    { id: "s7", name: "LangChain", icon: "link", category: "Tools", proficiency: 85 },
+    { id: "s8", name: "TensorFlow", icon: "cpu", category: "Tools", proficiency: 82 },
   ],
+
   experience: [
     {
       id: "e1",
-      company: "Nebula Systems",
-      role: "Senior Frontend Engineer",
-      period: "2023 - Present",
-      description: "Leading the development of a distributed cloud management interface using React and Three.js.",
-      tags: ["React", "WebGL", "System Design"],
+      company: "Microsoft AI Innovate Hackathon",
+      role: "Frontend & AI Contributor",
+      period: "2025",
+      description:
+        "Contributed to frontend development, product design, and AI research as part of an award-winning team.",
+      tags: ["Frontend", "AI", "Hackathon"],
     },
     {
       id: "e2",
-      company: "Orbit Creative",
-      role: "Full Stack Developer",
-      period: "2021 - 2023",
-      description: "Designed and implemented interactive brand experiences for high-profile tech clients.",
-      tags: ["Next.js", "Animation", "Node.js"],
+      company: "Open Source (GSSoC’25)",
+      role: "Open Source Contributor",
+      period: "2025",
+      description:
+        "Active contributor to open-source projects, collaborating on scalable features, bug fixes, and UI improvements.",
+      tags: ["Open Source", "Git", "Collaboration"],
     },
   ],
 }
