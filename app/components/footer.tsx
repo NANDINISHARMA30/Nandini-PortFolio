@@ -13,8 +13,8 @@ export function Footer() {
         {/* About */}
         <div className="space-y-4">
           <h3 className="flex items-center gap-2 text-lg font-bold">
-            <span className="bg-primary text-dark-bg px-2 py-1 rounded">RS</span>{" "}
-            nandini.codes_
+            <span className="bg-primary text-dark-bg px-2 py-1 rounded">NS</span>{" "}
+            Nandini's workspace
           </h3>
           <p className="text-sm text-gray-400">
               AI-Explorer based in Greater Noida, India. Building robust systems and scalable server architectures. Specializing in API development, database optimization, and deployments.
@@ -48,7 +48,7 @@ export function Footer() {
         <div className="space-y-2">
           <h4 className="text-lg font-bold">Quick Links</h4>
           <ul className="text-gray-400 space-y-1">
-            {["About", "Projects", "Skills", "Learning", "Certifications", "Contact", "Terminal"].map((link) => (
+            {["About", "Projects", "Skills", "Certifications", "Contact", "Terminal"].map((link) => (
               <li key={link}>
                 <a href={`#${link.toLowerCase()}`} className="hover:text-primary transition">
                   {link}
