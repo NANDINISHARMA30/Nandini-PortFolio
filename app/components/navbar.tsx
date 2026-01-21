@@ -18,7 +18,6 @@ const navLinks = [
   { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
-  { name: "Learning", href: "#learning" },
   { name: "Certifications", href: "#certifications" },
   { name: "Contact", href: "#contact" },
 ]
@@ -56,7 +55,7 @@ export function Navbar() {
       <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground">
         <Layout className="w-5 h-5" />
       </div>
-      <span>NANDINI.</span>
+      <span>Nandini's Portfolio</span>
     </motion.div>
 
     {/* DESKTOP NAV */}
