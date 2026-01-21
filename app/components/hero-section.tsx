@@ -97,13 +97,23 @@ export function HeroSection() {
           </p>
 
           <div className="flex gap-4 relative z-10">
-            <Button size="lg" className="rounded-full gap-2">
+            <Button 
+              size="lg" 
+              className="rounded-full gap-2"
+              onClick={() => window.open('https://github.com/NANDINISHARMA30', '_blank')}
+            >
               Explore Projects <ArrowRight className="w-4 h-4" />
             </Button>
             <Button
               size="lg"
               variant="ghost"
               className="rounded-full border border-white/10"
+              onClick={() => {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
             >
               Get in Touch
             </Button>
