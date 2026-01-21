@@ -33,7 +33,7 @@ export function ProjectsSection() {
         )
 
   return (
-    <section className="relative py-32 px-6">
+    <section id="projects" className="relative py-32 px-6">
       <div className="max-w-7xl mx-auto space-y-16">
 
         {/* HEADER */}

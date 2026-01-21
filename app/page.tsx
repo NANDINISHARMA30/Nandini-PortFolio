@@ -5,7 +5,6 @@ import { AboutSection } from "@/app/components/about-section"
 import { SkillsSection } from "@/app/components/skills-section"
 import { ProjectsSection } from "@/app/components/project-section"
 import { CertificationSection } from "@/app/components/certification-section"
-import { ExperienceSection } from "@/app/components/experience-section"
 import { ContactSection } from "@/app/components/contact-section"
 import { Footer } from "@/app/components/footer"
 import { CustomCursor } from "@/app/components/custom-cursor"
@@ -22,7 +21,6 @@ export default function Home() {
         <HeroSection />
         <AboutSection />
         <SkillsSection />
-        <ExperienceSection />
         <ProjectsSection />
         <CertificationSection />
         <ContactSection />
