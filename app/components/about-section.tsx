@@ -2,6 +2,11 @@
 
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/app/components/ui/card"
+import { Button } from "@/app/components/ui/button"
+import { FileText } from "lucide-react"
+
+const RESUME_URL =
+  "https://drive.google.com/file/d/1unaXBOkQbQMN0Ms5-xbgUzjGpgMPvVE4/view"
 
 export function AboutSection() {
   return (
@@ -40,6 +45,27 @@ export function AboutSection() {
               <p className="text-3xl font-bold text-foreground">12+</p>
               <p className="text-sm text-muted-foreground">Projects Launched</p>
             </div>
+          </div>
+
+          <div className="pt-0 flex justify-center">
+            <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" className="mr-48">
+              <Button
+                size="lg"
+                className="
+                  bg-primary/90 text-primary-foreground
+                  border border-primary/50
+                  shadow-[0_0_20px_rgba(var(--ring),0.6)]
+                  hover:shadow-[0_0_32px_rgba(var(--ring),0.9)]
+                  hover:bg-primary
+                  transition-all
+                  gap-2
+                  text-lg py-3 px-6
+                "
+              >
+                <FileText className="w-5 h-5" />
+                Resume
+              </Button>
+            </a>
           </div>
         </motion.div>
 
