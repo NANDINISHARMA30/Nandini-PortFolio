@@ -9,19 +9,22 @@ import {
   Database,
   Brain,
   Server,
-  Layers
+  Layers,
+  Wrench
 } from "lucide-react"
 
 const categoryIcons: Record<string, any> = {
   Backend: Server,
   AI: Brain,
+  GenAI: Brain,
+  "Currently Building": Wrench,
   Others: Layers,
 }
 
 export function ProjectsSection() {
   const [filter, setFilter] = useState("All")
 
-  const categories = ["All", "Backend", "AI", "Others"]
+  const categories = ["All", "GenAI", "AI", "Currently Building"]
 
   const filteredProjects =
     filter === "All"
@@ -91,15 +94,15 @@ export function ProjectsSection() {
                   >
                     {/* CARD */}
                     <div
-                      className="
+                      className={`
                         relative h-full
                         rounded-xl
                         bg-card
-                        border border-primary/25
+                        border ${project.tags.includes("Currently Building") ? "border-yellow-500/50" : "border-primary/25"}
                         shadow-[0_0_24px_rgba(var(--ring),0.2)]
                         hover:shadow-[0_0_40px_rgba(var(--ring),0.4)]
                         transition-all
-                      "
+                      `}
                     >
                       {/* ACTION ICONS */}
                       <div className="absolute top-4 right-4 flex gap-3 text-muted-foreground">

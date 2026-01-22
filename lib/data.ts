@@ -73,6 +73,86 @@ export const initialData: PortfolioData = {
 
   projects: [
     {
+      id: "financial-analysis-rag",
+      title: "Financial Analysis Assistant (RAG)",
+      description:
+        "A Retrieval-Augmented Generation (RAG) powered financial assistant that retrieves relevant financial documents and generates accurate, context-aware analytical insights.",
+      image: "/projects/financial-rag.png",
+      tags: [
+        "AI",
+        "RAG",
+        "LangChain",
+        "Vector Database",
+        "LLM",
+        "Backend",
+        "GenAI",
+      ],
+      liveUrl: "",
+      githubUrl: "https://github.com/NANDINISHARMA30/Financial-Analysis-Assitant--RAG",
+      featured: true,
+    },
+
+    {
+      id: "mango-leaf-ai",
+      title: "Mango Leaf AI Diagnosis",
+      description:
+        "A computer vision and deep learning solution for detecting and classifying mango leaf diseases using CNNs, enabling early diagnosis for precision agriculture.",
+      image: "/projects/mango-leaf.png",
+      tags: [
+        "AI",
+        "Computer Vision",
+        "Deep Learning",
+        "CNN",
+        "TensorFlow",
+        "OpenCV",
+      ],
+      liveUrl: "",
+      githubUrl: "https://github.com/NANDINISHARMA30/Mango-Leaf-AI-Diagnosis-",
+      featured: true,
+    },
+
+    {
+      id: "intelligent-log-classification",
+      title: "Intelligent Log Classification & Monitoring System (DeepSeek NLP)",
+      description:
+        "Developed an AI-driven log classification system to categorize logs into errors, warnings, info, and security events. Used DeepSeek-based NLP models with text embeddings for unstructured log analysis. Implemented end-to-end ML pipeline (data prep, training, evaluation, deployment) with real-time alerts for server crashes and anomalies.",
+      image: "/projects/log-classification.png",
+      tags: [
+        "AI",
+        "NLP",
+        "DeepSeek",
+        "Machine Learning",
+        "Monitoring",
+        "Python",
+        "Currently Building",
+        "GenAI",
+      ],
+      liveUrl: "",
+      githubUrl: "",
+      featured: true,
+    },
+
+    {
+      id: "agentic-genai-app-builder",
+      title: "Agentic GenAI App Builder (LangGraph, LangChain, Grok Cloud)",
+      description:
+        "Built an agentic AI system that autonomously generates functional apps and codebases from natural language prompts. Used LangGraph for structured reasoning workflows and LangChain for LLM orchestration. Demonstrated a Lovable-style clone app generator for real-world GenAI engineering.",
+      image: "/projects/genai-app-builder.png",
+      tags: [
+        "AI",
+        "LangGraph",
+        "LangChain",
+        "Grok",
+        "GenAI",
+        "App Builder",
+        "Currently Building",
+      ],
+      liveUrl: "",
+      githubUrl: "",
+      featured: true,
+    },
+
+    {
       id: "stress-detector-pss",
       title: "Stress Detector (PSS-Based)",
       description:
@@ -104,47 +184,10 @@ export const initialData: PortfolioData = {
         "LangChain",
         "FastAPI",
         "Python",
+        "GenAI",
       ],
       liveUrl: "",
       githubUrl: "https://github.com/NANDINISHARMA30/Blog-Generation-LLM-application",
-      featured: true,
-    },
-
-    {
-      id: "financial-analysis-rag",
-      title: "Financial Analysis Assistant (RAG)",
-      description:
-        "A Retrieval-Augmented Generation (RAG) powered financial assistant that retrieves relevant financial documents and generates accurate, context-aware analytical insights.",
-      image: "/projects/financial-rag.png",
-      tags: [
-        "AI",
-        "RAG",
-        "LangChain",
-        "Vector Database",
-        "LLM",
-        "Backend",
-      ],
-      liveUrl: "",
-      githubUrl: "https://github.com/NANDINISHARMA30/Financial-Analysis-Assitant--RAG",
-      featured: true,
-    },
-
-    {
-      id: "mango-leaf-ai",
-      title: "Mango Leaf AI Diagnosis",
-      description:
-        "A computer vision and deep learning solution for detecting and classifying mango leaf diseases using CNNs, enabling early diagnosis for precision agriculture.",
-      image: "/projects/mango-leaf.png",
-      tags: [
-        "AI",
-        "Computer Vision",
-        "Deep Learning",
-        "CNN",
-        "TensorFlow",
-        "OpenCV",
-      ],
-      liveUrl: "",
-      githubUrl: "https://github.com/NANDINISHARMA30/Mango-Leaf-AI-Diagnosis-",
       featured: true,
     },
   ],
